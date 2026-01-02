@@ -12,12 +12,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
 fun AddTaskScreen(
     // Hilt will automatically find and provide the AddTaskViewModel here
-    viewModel: AddTaskViewModel = viewModel()
+    viewModel: AddTaskViewModel = hiltViewModel(),
+    onSaveSuccess: () -> Unit
 ) {
     var title by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
@@ -38,7 +40,7 @@ fun AddTaskScreen(
         Button(
             onClick = {
                 viewModel.addTask(title, description)
-                // We will add navigation "Back" later
+                onSaveSuccess()
             },
             modifier = Modifier.padding(top = 16.dp)
         ) {
