@@ -9,6 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.niv.todolistapp.ui.add_task.AddTaskScreen
+import com.niv.todolistapp.ui.task_list.TaskListScreen
 import com.niv.todolistapp.ui.theme.TaskFlowTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,7 +25,12 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     // Temporarily showing just this screen to test it
-                    AddTaskScreen()
+                    //AddTaskScreen()
+                    TaskListScreen(
+                        onTaskClick = {
+
+                        }
+                    )
                 }
             }
         }
