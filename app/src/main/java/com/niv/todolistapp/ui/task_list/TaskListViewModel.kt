@@ -23,4 +23,10 @@ class TaskListViewModel @Inject constructor(
             )
         }
     }
+
+    fun onTaskDelete(task: TaskEntity) {
+        viewModelScope.launch {
+            repository.deleteTask(task)
+        }
+    }
 }
